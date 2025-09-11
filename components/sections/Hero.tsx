@@ -24,9 +24,13 @@ export default function Hero() {
           {/* ปุ่ม action */}
           <div className="mt-6 flex gap-3">
             {/* Resume */}
-            <Button variant="outline" asChild>
-              <a href="/resume.pdf" download>
-                Download Resume
+            <Button asChild>
+              <a
+                href="https://drive.google.com/file/d/1rJL5gJPQzYBxWvDQcwrElGmWOaCn2MJL/preview"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Resume
               </a>
             </Button>
 
