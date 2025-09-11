@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Your Name — Portfolio",
+  title: "Thanawat Bunprasob — Portfolio",
   description: "Personal portfolio built with Next.js, Tailwind, and shadcn/ui",
 };
 
