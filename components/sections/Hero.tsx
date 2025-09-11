@@ -24,8 +24,10 @@ export default function Hero() {
           {/* ปุ่ม action */}
           <div className="mt-6 flex gap-3">
             {/* Resume */}
-            <Button asChild>
-              <a href="#projects">View Resume</a>
+            <Button variant="outline" asChild>
+              <a href="/resume.pdf" download>
+                Download Resume
+              </a>
             </Button>
 
             {/* GitHub */}

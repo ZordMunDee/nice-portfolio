@@ -5,7 +5,6 @@ const skills = [
   { name: "HTML", value: 90 },
   { name: "CSS", value: 85 },
   { name: "JavaScript", value: 85 },
-  { name: "TypeScript", value: 80 },
   { name: "React", value: 90 },
   { name: "Next.js", value: 85 },
   { name: "Tailwind", value: 90 },
