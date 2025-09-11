@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Thanawat Bunprasob — Portfolio",
-  description: "Personal portfolio built with Next.js, Tailwind, and shadcn/ui",
+  description: ""Frontend developer portfolio featuring projects with Next.js, React and Tailwind CSS,",
 };
 
 export default function RootLayout({
