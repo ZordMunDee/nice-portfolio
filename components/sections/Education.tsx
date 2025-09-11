@@ -13,7 +13,7 @@ type Education = {
 
 const educations: Education[] = [
   {
-    school: "KMUTT",
+    school: "KMITL PCC",
     degree: "B.Eng. Computer Engineering",
     year: "2023 – Present",
     desc: "Studying software engineering.",
@@ -21,7 +21,7 @@ const educations: Education[] = [
     gpa: "2.61",
   },
   {
-    school: "High School Name",
+    school: "Pahyaom Phitthayakhom School",
     degree: "Science – Mathematics Program",
     year: "2020 – 2022",
     desc: "Focused on science and mathematics with extracurricular programming.",

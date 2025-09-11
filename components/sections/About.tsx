@@ -6,8 +6,7 @@ const facts = [
   { label: "Degree", value: "B.Eng. Computer Engineering" },
   {
     label: "Location",
-    value:
-      "23, Moo 7, Ban Phrao Subdistrict, Pa Phayom District, Phatthalung Province",
+    value: "Phatthalung, Thailand",
   },
   { label: "Email", value: "zeroznice.nice@gmail.com" },
 ];

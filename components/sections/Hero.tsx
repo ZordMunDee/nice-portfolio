@@ -28,7 +28,7 @@ export default function Hero() {
               <a
                 href="https://drive.google.com/file/d/1rJL5gJPQzYBxWvDQcwrElGmWOaCn2MJL/preview"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="MyResume"
               >
                 View Resume
               </a>
@@ -37,9 +37,9 @@ export default function Hero() {
             {/* GitHub */}
             <Button variant="outline" asChild>
               <a
-                href="https://github.com/ZordMunDee" // 👈 ใส่ลิงก์ GitHub ของคุณ
+                href="https://github.com/ZordMunDee"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="ZordMundeeGitHub"
                 className="flex items-center gap-2"
               >
                 <Github className="h-4 w-4" />
@@ -50,9 +50,9 @@ export default function Hero() {
             {/* LinkedIn */}
             <Button variant="outline" asChild>
               <a
-                href="https://www.linkedin.com/in/me/" // 👈 ใส่ลิงก์ LinkedIn ของคุณ
+                href="https://www.linkedin.com/in/thanawat-bunprsob-6a5230384/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="Thanawat Bunprasob portrait"
                 className="flex items-center gap-2"
               >
                 <Linkedin className="h-4 w-4" />
@@ -67,7 +67,7 @@ export default function Hero() {
           <div className="relative h-56 w-56 overflow-hidden rounded-2xl border md:h-72 md:w-72">
             <Image
               src="/avatar.jpg"
-              alt="Your portrait"
+              alt="Thanawat Bunprasob portrait"
               width={288}
               height={288}
               className="h-56 w-56 md:h-72 md:w-72 rounded-2xl object-cover border"
