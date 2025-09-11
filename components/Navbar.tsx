@@ -6,10 +6,9 @@ import { Menu } from "lucide-react";
 
 const links = [
   { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
+  { href: "#education", label: "Education" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
-  { href: "#testimonials", label: "Testimonials" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -19,7 +18,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         <Link href="#" className="font-semibold tracking-tight">
-          Thanawat Bunprasob<span className="text-primary">.</span>
+          Thanawat Bunprasob<span className="text-primary"></span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {links.map((l) => (

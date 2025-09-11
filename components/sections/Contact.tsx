@@ -25,7 +25,9 @@ export default function Contact() {
           <Button type="submit">Send message</Button>
         </div>
         {sent && (
-          <p className="text-sm text-green-600">Thanks! I'll reply soon.</p>
+          <p className="text-sm text-green-600">
+            Thanks! I&apos;ll reply soon.
+          </p>
         )}
       </form>
     </Section>

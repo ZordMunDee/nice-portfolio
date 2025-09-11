@@ -1,5 +1,6 @@
 import Section from "@/components/Section";
 import { Card } from "@/components/ui/card";
+import Image from "next/image";
 
 type Education = {
   school: string;
@@ -40,7 +41,7 @@ export default function Education() {
                 <img
                   src={edu.logo}
                   alt={edu.school}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain bg-white"
                 />
               </div>
               <div className="flex-1 text-left">

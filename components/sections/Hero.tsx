@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Github, Linkedin } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -11,9 +12,9 @@ export default function Hero() {
             Frontend Developer
           </Badge>
           <h1 className="text-4xl md:text-3xl font-bold leading-tight">
-            Hi, I'm <span className="text-primary">Thanawat Bunprasob</span> —{" "}
-            Building modern front-end solutions with a focus on simplicity and
-            usability.
+            Hi, I&apos;m{" "}
+            <span className="text-primary">Thanawat Bunprasob</span> — Building
+            modern front-end solutions with a focus on simplicity and usability.
           </h1>
           <p className="mt-4 text-muted-foreground">
             Building modern UIs with React, Next.js, and Tailwind — fast, clean,
@@ -58,11 +59,12 @@ export default function Hero() {
         {/* Avatar */}
         <div className="justify-self-center">
           <div className="relative h-56 w-56 overflow-hidden rounded-2xl border md:h-72 md:w-72">
-            {/* replace with next/image */}
-            <img
+            <Image
               src="/avatar.jpg"
               alt="Your portrait"
-              className="h-full w-full object-cover"
+              width={288}
+              height={288}
+              className="h-56 w-56 md:h-72 md:w-72 rounded-2xl object-cover border"
             />
           </div>
         </div>

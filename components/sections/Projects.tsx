@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
+import Image from "next/image";
 
 type Project = {
   title: string;
@@ -46,9 +47,11 @@ export default function Projects() {
         {projects.map((p) => (
           <Card key={p.title} className="overflow-hidden">
             <div className="aspect-video overflow-hidden">
-              <img
+              <Image
                 src={p.image ?? "/placeholder.svg"}
                 alt=""
+                width={1280}
+                height={720}
                 className="h-full w-full object-cover"
               />
             </div>
