@@ -32,7 +32,7 @@ const projects: Project[] = [
     image: "/Mood.jpg",
   },
   {
-    title: "WongNok (Team)",
+    title: "TasteTrail(In Process)",
     desc: "Uni eateries finder; I owned Auth & Edit Profile & Shop CRUD.",
     tags: ["Next.js", "Prisma", "Auth"],
     source: "https://github.com/KMITL-PCC/wongnok",
