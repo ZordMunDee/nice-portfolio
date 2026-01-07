@@ -198,3 +198,11 @@
     letter-spacing: var(--tracking-normal);
   }
 }
+
+html {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+  @apply bg-white text-black dark:bg-zinc-900 dark:text-white;
+}
