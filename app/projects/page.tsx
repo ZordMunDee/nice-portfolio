@@ -69,7 +69,7 @@ const Projects = () => {
                   </li>
                 ))}
               </ul>
-
+// eiei
               <div className="flex gap-4">
                 {project.link.live && (
                   <Button className="text-background/90 h-8" asChild>
