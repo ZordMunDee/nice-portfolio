@@ -21,15 +21,9 @@ import { toast } from "sonner";
 
 /* ---------------- schema ---------------- */
 const contactFormSchema = z.object({
-  name: z
-    .string()
-    .min(2, "Please enter your name")
-    .max(50, "Name is too long"),
+  name: z.string().min(2, "Please enter your name").max(50, "Name is too long"),
   email: z.string().email("Please enter a valid email"),
-  message: z
-    .string()
-    .min(5, "Message is too short")
-    .max(500, "Message is too long"),
+  message: z.string().min(5, "Message is too short").max(500, "Message is too long"),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -55,16 +49,11 @@ export default function ContactForm() {
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
+    defaultValues: { name: "", email: "", message: "" },
   });
 
   const handleSubmit = async (values: ContactFormValues) => {
     setIsSubmitting(true);
-
     try {
       await submitContact(values);
       toast.success("Your message has been sent 🚀");
@@ -80,8 +69,13 @@ export default function ContactForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSubmit)}
-        className="space-y-6"
+        className="max-w-xl mx-auto p-8 rounded-2xl shadow-xl space-y-6 border"
       >
+        <h2 className="text-2xl font-bold mb-2">Contact Me</h2>
+        <p className="mb-6">
+          Have a question or want to work together? Fill out the form below.
+        </p>
+
         <div className="grid gap-4 md:grid-cols-2">
           <FormField
             control={form.control}
@@ -89,10 +83,7 @@ export default function ContactForm() {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input
-                    placeholder="Your name"
-                    {...field}
-                  />
+                  <Input placeholder="Your name" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -105,10 +96,7 @@ export default function ContactForm() {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input
-                    placeholder="Your email"
-                    {...field}
-                  />
+                  <Input placeholder="Your email" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -122,32 +110,23 @@ export default function ContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Textarea
-                  placeholder="Tell me about your idea, opportunity, or just say hello 👋"
-                  rows={5}
-                  className="resize-none"
-                  {...field}
-                />
+                <Textarea placeholder="Your message..." rows={5} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
 
-        <Button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full gap-2"
-        >
+        <Button type="submit" disabled={isSubmitting} className="w-full flex justify-center items-center gap-2">
           {isSubmitting ? (
             <>
-              <Loader2 className="h-4 w-4 animate-spin" />
+              <Loader2 className="h-5 w-5 animate-spin" />
               Sending...
             </>
           ) : (
             <>
-              Send message
-              <Send className="h-4 w-4" />
+              Send Message
+              <Send className="h-5 w-5" />
             </>
           )}
         </Button>

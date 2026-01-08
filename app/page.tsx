@@ -1,5 +1,6 @@
-import * as motion from "motion/react-client";
+"use client";
 
+import * as motion from "motion/react-client";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { educations, intro, skills, socialLinks } from "@/lib/data";
@@ -14,144 +15,128 @@ import Link from "next/link";
 
 const Home = () => {
   return (
-    <BlurFade className="flex flex-col gap-16">
-      <section className="flex flex-col-reverse items-center justify-between gap-8 md:flex-row">
-        <div className="flex max-w-[500px] flex-1 flex-col gap-4">
+    <BlurFade className="flex flex-col gap-20">
+      {/* ---------------- Hero Section ---------------- */}
+      <section className="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-16">
+        <div className="flex flex-1 flex-col gap-6 max-w-lg">
           <TypingAnimation
-            startOnView={true}
+            startOnView
             delay={500}
-            className="text-4xl leading-tight font-bold lg:h-[45px]"
+            className="text-3xl md:text-5xl font-extrabold tracking-tight leading-snug"
           >
-            {`I'm ${intro.name} 👋` as string}
+            {`Hi, I'm ${intro.name}! 👋`}
           </TypingAnimation>
-          <p className="text-secondary-foreground/90 text-base">
-            {intro.firstDescription}
-          </p>
-          <p className="text-secondary-foreground/90 text-base">
+          <p className="text-base md:text-lg">{intro.firstDescription}</p>
+          <p className="text-base md:text-lg">
             Looking for a{" "}
-            <span className="text-primary font-bold">Frontend</span> internship
-            to learn, grow, and contribute.
+            <span className="font-semibold">Frontend</span> internship to
+            learn, grow, and contribute.
           </p>
-          <p className="text-primary relative flex items-center text-base font-semibold">
-            <ArrowDownRight className="animate-bounce" />
+
+          <p className="font-semibold flex items-center gap-2 text-base md:text-lg">
+            <ArrowDownRight className="animate-bounce h-5 w-5" />
             {intro.thirdDescription}
           </p>
 
-          <ul className="text-muted-foreground mt-4 flex items-center gap-6">
-            <Link target="_blank" href="/resume.pdf">
-              <InteractiveHoverButton className="h-10 text-sm">
-                <span className="font-semibold">Resume</span>
+          <div className="flex flex-wrap items-center gap-4 mt-4">
+            <Link href="/resume.pdf" target="_blank">
+              <InteractiveHoverButton className="px-4 py-2 text-sm rounded-full transition">
+                Resume
               </InteractiveHoverButton>
             </Link>
+
             {socialLinks.map((link) => (
-              <li key={link.name}>
-                <Link href={link.href} target="_blank">
+              <Link key={link.name} href={link.href} target="_blank">
+                <InteractiveHoverButton className="px-3 py-2 rounded-full transition">
                   {link.icon === "Github" ? (
-                    <Github />
+                    <Github className="h-4 w-4" />
                   ) : link.icon === "Linkedin" ? (
-                    <Linkedin />
+                    <Linkedin className="h-4 w-4" />
                   ) : link.icon === "Mail" ? (
-                    <Mail />
+                    <Mail className="h-4 w-4" />
                   ) : (
                     link.icon
                   )}
-                </Link>
-              </li>
+                </InteractiveHoverButton>
+              </Link>
             ))}
-          </ul>
+          </div>
         </div>
 
-        <div className="rounded-ful relative h-48 w-48 -rotate-90 drop-shadow-lg md:h-64 md:w-64">
+        <div className="relative w-48 h-48 md:w-72 md:h-72 rounded-xl overflow-hidden shadow-xl">
           <Image
             src="/avatar.png"
             alt="profile"
             fill
-            className="z-50 rounded-xl rounded-bl-4xl object-cover rotate-90"
+            className="object-cover rounded-xl transform hover:scale-105 transition-transform duration-300"
           />
         </div>
       </section>
 
-      <section className="flex items-center justify-center">
-        <Tabs
-          defaultValue="skills"
-          className="flex w-full items-center justify-center"
-        >
-          <TabsList className="h-11 w-full p-1">
-            <TabsTrigger value="skills" className="cursor-pointer">
+      {/* ---------------- Tabs Section ---------------- */}
+      <section className="w-full flex flex-col items-center gap-8">
+        <Tabs defaultValue="skills" className="w-full max-w-4xl">
+          <TabsList className="grid grid-cols-2 rounded-lg p-1">
+            <TabsTrigger value="skills" className="rounded-lg hover:opacity-80">
               Skills
             </TabsTrigger>
-            <TabsTrigger value="education" className="cursor-pointer">
+            <TabsTrigger value="education" className="rounded-lg hover:opacity-80">
               Education
             </TabsTrigger>
           </TabsList>
-          <TabsContent value="skills" className="w-full">
-            <Card className="grid grid-cols-2 place-items-center gap-6 px-12 md:grid-cols-4 md:px-6">
+
+          {/* ---------------- Skills Tab ---------------- */}
+          <TabsContent value="skills" className="mt-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {skills.map((skill) => (
                 <motion.div
                   key={skill.name}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.65 }}
-                  className={`animate-fade-in flex h-full flex-col items-center justify-end gap-3 ${skill.name === "Tailwind CSS" ? "gap-4" : ""}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="flex flex-col items-center gap-2 p-4 rounded-lg shadow hover:scale-105 transition-transform"
                 >
                   <Image
                     src={skill.src}
                     alt={skill.name}
                     width={50}
                     height={50}
-                    className={`rounded-sm ${skill.name === "Next.js" || skill.name === "Shadcn UI" ? "dark:invert" : ""}`}
+                    className="rounded-sm"
                   />
-                  <p className="font-medium">{skill.name}</p>
+                  <span className="font-medium text-sm">{skill.name}</span>
                 </motion.div>
               ))}
-            </Card>
+            </div>
           </TabsContent>
 
-          <TabsContent value="education" className="w-full">
-            <Card className="items-start gap-4 px-10 md:px-20">
-              <motion.ul
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.65 }}
-                className="mb-4 ml-4 divide-y divide-dashed border-l"
-              >
-                {educations.map((education) => (
-                  <li className="relative ml-10 py-4" key={education.name}>
-                    <div className="absolute top-2 -left-17 flex items-center justify-center rounded-full bg-white">
-                      <Avatar className="m-auto size-14 border">
-                        <AvatarImage
-                          src={education.image}
-                          alt={education.name}
-                          className="object-contain"
-                        />
-                        <AvatarFallback>{education.name}</AvatarFallback>
-                      </Avatar>
-                    </div>
-                    <div className="flex flex-1 flex-col justify-start gap-1">
-                      {education.year && (
-                        <time className="text-muted-foreground text-xs">
-                          {education.year}
-                        </time>
-                      )}
-                      {education.institution && (
-                        <span className="leading-normal font-medium">
-                          {education.institution.map((institution) => (
-                            <p key={institution}>{institution}</p>
-                          ))}
-                        </span>
-                      )}
-                      <h2 className="prose dark:prose-invert text-muted-foreground text-sm leading-normal">
-                        {education.name} ({education.descriptions[0]})
-                      </h2>
-                    </div>
-                  </li>
-                ))}
-              </motion.ul>
-            </Card>
+          {/* ---------------- Education Tab ---------------- */}
+          <TabsContent value="education" className="mt-6">
+            <div className="flex flex-col gap-6">
+              {educations.map((edu) => (
+                <motion.div
+                  key={edu.name}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="flex flex-col md:flex-row gap-4 p-4 rounded-lg shadow"
+                >
+                  <Avatar className="w-14 h-14 border ">
+                    <AvatarImage src={edu.image} alt={edu.name} />
+                    <AvatarFallback>{edu.name}</AvatarFallback>
+                  </Avatar>
+                  <div className="flex flex-col justify-center">
+                    {edu.year && <time className="text-xs">{edu.year}</time>}
+                    <span className="font-medium">{edu.institution.join(", ")}</span>
+                    <p className="text-sm">{edu.name} ({edu.descriptions[0]})</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </TabsContent>
         </Tabs>
       </section>
     </BlurFade>
   );
 };
+
 export default Home;
