@@ -19,8 +19,8 @@ const Projects = () => {
       <h1 className="text-4xl font-bold">My projects</h1>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {projects.map((project) => (
-          <Card key={project.name}>
+        {projects.map((project, projectIndex) => (
+          <Card key={`${project.name}-${projectIndex}`}>
             <div className="px-8">
               <div className="flex justify-center">
                 {project.link.live ? (
@@ -44,24 +44,26 @@ const Projects = () => {
                 )}
               </div>
             </div>
+
             <CardHeader className="flex-1 gap-1">
               <CardTitle className="text-lg font-semibold">
                 <p>{project.name}</p>
               </CardTitle>
               <CardDescription>
                 <ul className="text-sm">
-                  {project.description.map((description) => (
-                    <li key={description}>{description}</li>
+                  {project.description.map((description, descIndex) => (
+                    <li key={`${description}-${descIndex}`}>{description}</li>
                   ))}
                 </ul>
               </CardDescription>
             </CardHeader>
+
             <CardFooter className="flex flex-col items-start gap-6">
               <ul className="flex gap-2 text-sm">
-                {project.technologies.map((technology) => (
+                {project.technologies.map((technology, techIndex) => (
                   <li
                     className="text-secondary-foreground/80 bg-accent dark:bg-muted rounded-md px-1 py-0.5 md:px-1.5 md:py-1"
-                    key={technology}
+                    key={`${technology}-${techIndex}`}
                   >
                     {technology}
                   </li>
@@ -91,4 +93,5 @@ const Projects = () => {
     </BlurFade>
   );
 };
+
 export default Projects;

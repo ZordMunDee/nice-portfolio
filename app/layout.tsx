@@ -1,10 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Navbar from "@/components/Navbar";
-import ThemeToggle from "@/components/ThemeToggle";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "sonner";
 
-const inter = Inter({ subsets: ["latin"] });
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ParticlesEffect from "@/components/particles-effect";
 
 export const metadata: Metadata = {
   title: "Thanawat Bunprasob — Portfolio",
@@ -14,14 +15,27 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} bg-background text-foreground`}>
-        <Navbar />
-        <main className="container mx-auto px-4 md:px-8">{children}</main>
+      <body className="relative flex min-h-svh w-full flex-col px-8">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ParticlesEffect>
+            <Header />
+            <main className="container mx-auto max-w-3xl flex-1">
+              {children}
+            </main>
+            <Footer />
+            <Toaster />
+          </ParticlesEffect>
+        </ThemeProvider>
       </body>
     </html>
   );
